@@ -1,0 +1,57 @@
+rails g scaffold Inventory name:string description:text price:float
+
+User.create!(email: 'velthangavelcse@gmail.com' , password: 'rails@123' , password_confirmation: 'rails@123', first_name: 'Thangavel', last_name: 'P')
+
+Inventory.create(name: 'Item1', description: 'testing item', price: 100)
+
+$ curl -H "Content-Type: application/json" -X POST -d '{"email":"velthangavelcse@gmail.com","password":"rails@123"}' http://localhost:3000/authenticate
+
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0Mzk5NDB9.cPHDr7QNly3xRXYNwHQ04rhf5pXk10-u6tj_j2m6RvU
+
+curl http://localhost:3000/inventories
+
+curl -H "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0Mzk5NDB9.cPHDr7QNly3xRXYNwHQ04rhf5pXk10-u6tj_j2m6RvU" http://localhost:3000/inventories
+
+{
+    "auth_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0NDA2NTR9.W07uLf5DOWVrT6sq9p5URpefH6Jkb0e1GFwxVbnF3Nw"
+}
+
+
+http://localhost:3000/users?first_name=Anand&last_name=B&email=anand@gmail.com&password=rails@123&password_confirmation=rails@123
+
+"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU0ODA2Nzh9.QwisMaFgZOC8Kb1-07IQ79UfKpURFtbyk3W2Q6OwCXg"
+
+
+IT Admin 
+can crud employees
+cannot access inventories
+
+Inventory Manager
+can crud inventories
+cannot access employees
+
+Quality check person
+cannot access employees
+can update qa_status in inventory
+
+Sales Manager
+can see inventories
+can see employees with roles sales manager
+
+{
+    "email": "velthangavelcse@gmail.com",
+    "password": "rails@123"
+}
+
+User.create!(email: 'giri@gmail.com' , password: 'rails@123' , password_confirmation: 'rails@123', first_name: 'Giri', last_name: 'S', role: "sales_manager")
+
+User.create!(email: 'deeshi@gmail.com' , password: 'rails@123' , password_confirmation: 'rails@123', first_name: 'Deeshitha', last_name: 'B', role: "quality_check_person")
+
+
+
+
+
+"inventory": {
+    "name": "Test item",
+    "qa_status": "accepted"
+}
